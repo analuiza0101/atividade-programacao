@@ -1,32 +1,21 @@
 #include <stdio.h>
 
-int main()
-{
-    float moeda;
-    float total = 0;
-    char continuar;
+int main() {
+    int i;
+    float nota, soma = 0.0, media;
 
-    do
-    {
-        printf("Digite o valor da moeda (0.50, 1.00 ou 2.00): ");
-        scanf("%f", &moeda);
+    for (i = 1; i <= 10; i++) {
+        printf("Digite a nota de atendimento do cliente %d (0 a 10): ", i);
+        scanf("%f", &nota);
+        soma += nota;
+    }
 
-        if (moeda == 0.50 || moeda == 1.00 || moeda == 2.00)
-        {
-            total = total + moeda;
-            printf("Moeda adicionada!\n");
-        }
-        else
-        {
-            printf("Moeda invalida!\n");
-        }
+    media = soma / 10.0;
+    printf("\nMedia geral de atendimento: %.2f\n", media);
 
-        printf("Deseja adicionar outra moeda? (S/N): ");
-        scanf(" %c", &continuar);
-
-    } while (continuar == 'S' || continuar == 's');
-
-    printf("\nTotal acumulado: R$ %.2f\n", total);
+    if (media < 7.0) {
+        printf("ALERTA: A media geral de atendimento esta abaixo de 7,0!\n");
+    }
 
     return 0;
 }
